@@ -7,7 +7,11 @@ android {
     compileSdk 32
 
     defaultConfig {
+<<<<<<< HEAD
         applicationId "com.group7.momio"
+=======
+        applicationId "com.example.home"
+>>>>>>> a261b6256da44e8889091c738cd9e64ae23a2208
         minSdk 27
         targetSdk 32
         versionCode 1
@@ -29,9 +33,12 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+<<<<<<< HEAD
     buildFeatures {
         viewBinding true
     }
+=======
+>>>>>>> a261b6256da44e8889091c738cd9e64ae23a2208
 }
 
 dependencies {
@@ -40,6 +47,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+<<<<<<< HEAD
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.0'
@@ -49,4 +57,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'androidx.room:room-runtime:2.4.1'
     annotationProcessor 'androidx.room:room-compiler:2.4.1'
+=======
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+>>>>>>> a261b6256da44e8889091c738cd9e64ae23a2208
 }

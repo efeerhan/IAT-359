@@ -1,4 +1,5 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">Momio</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">Home</string>
@@ -10,4 +11,7 @@
     <string name="email">test@app.com</string>
     <string name="password">password</string>
     <string name="BALLS">BALLS</string>
+=======
+    <string name="app_name">home</string>
+>>>>>>> a261b6256da44e8889091c738cd9e64ae23a2208
 </resources>
