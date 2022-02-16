@@ -3,33 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< HEAD
-        <entry key="app/src/main/res/drawable/button_login_1.xml" value="0.1" />
-        <entry key="app/src/main/res/drawable/button_login_2.xml" value="0.33645833333333336" />
-        <entry key="app/src/main/res/drawable/button_sign_up.xml" value="0.33645833333333336" />
-        <entry key="app/src/main/res/drawable/empty.xml" value="0.33645833333333336" />
-        <entry key="app/src/main/res/drawable/gradient_button_background.xml" value="0.33645833333333336" />
-        <entry key="app/src/main/res/drawable/gradient_drawable.xml" value="0.33645833333333336" />
-        <entry key="app/src/main/res/drawable/gradient_text.xml" value="0.33645833333333336" />
-        <entry key="app/src/main/res/drawable/ic_emailvector.xml" value="0.33645833333333336" />
-        <entry key="app/src/main/res/drawable/text_input_border.xml" value="0.33645833333333336" />
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.3203125" />
-        <entry key="app/src/main/res/layout/activity_init.xml" value="0.3203125" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.26357489901006415" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2978278834158742" />
-        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.30771938783474206" />
-        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.3203125" />
-        <entry key="app/src/main/res/layout/activity_start.xml" value="0.3203125" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3449074074074074" />
-        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.3449074074074074" />
-=======
         <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.15092592592592594" />
-        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/drawable/gradient_vi.xml" value="0.15092592592592594" />
+        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/drawable/button_login_1.xml" value="0.23981481481481481" />
+        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/drawable/button_login_2.xml" value="0.23981481481481481" />
+        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/drawable/button_sign_up.xml" value="0.23981481481481481" />
+        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/drawable/gradient_button_background.xml" value="0.23981481481481481" />
+        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/drawable/gradient_drawable.xml" value="0.23981481481481481" />
+        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/drawable/gradient_vi.xml" value="0.23981481481481481" />
+        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.23981481481481481" />
+        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/drawable/ic_emailvector.xml" value="0.23981481481481481" />
+        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.23981481481481481" />
         <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/drawable/ic_launcher_background.xml" value="0.15092592592592594" />
+        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.23981481481481481" />
+        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/drawable/ic_passvector.xml" value="0.23981481481481481" />
+        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/layout/activity_home.xml" value="0.17119565217391305" />
         <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/layout/activity_main.xml" value="0.12" />
+        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/layout/activity_signup.xml" value="0.17119565217391305" />
+        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/layout/activity_start.xml" value="0.22546296296296298" />
+        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/layout/fragment_dashboard.xml" value="0.17119565217391305" />
+        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/layout/fragment_home.xml" value="0.17119565217391305" />
         <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/layout/mood_checker.xml" value="0.1390625" />
         <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/layout/mood_diary.xml" value="0.12361111111111112" />
->>>>>>> a261b6256da44e8889091c738cd9e64ae23a2208
       </map>
     </option>
   </component>
