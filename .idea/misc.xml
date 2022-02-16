@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/layout/activity_main.xml" value="0.1390625" />
+        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.15092592592592594" />
+        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/drawable/gradient_vi.xml" value="0.15092592592592594" />
+        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/drawable/ic_launcher_background.xml" value="0.15092592592592594" />
+        <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/layout/activity_main.xml" value="0.12" />
         <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/layout/mood_checker.xml" value="0.1390625" />
         <entry key="..\:/Spring2022/IAT359/Momio/app/src/main/res/layout/mood_diary.xml" value="0.12361111111111112" />
       </map>
