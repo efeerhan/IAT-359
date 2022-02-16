@@ -1,4 +1,4 @@
-package com.example.home
+package com.group7.momio
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

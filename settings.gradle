@@ -6,9 +6,7 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
-<<<<<<< HEAD
+
 rootProject.name = "Momio"
-=======
 rootProject.name = "home"
->>>>>>> a261b6256da44e8889091c738cd9e64ae23a2208
 include ':app'
