@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
     package="com.group7.momio">
 
     <application
@@ -15,8 +14,7 @@
             android:exported="false" />
         <activity
             android:name=".StartActivity"
-=======
-    package="com.example.home">
+        package="com.example.home">
 
     <application
         android:allowBackup="true"
@@ -27,7 +25,6 @@
         android:theme="@style/Theme.Home">
         <activity
             android:name=".MainActivity"
->>>>>>> a261b6256da44e8889091c738cd9e64ae23a2208
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,15 +32,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <activity
             android:name=".HomeActivity"
             android:exported="true"/>
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
-=======
->>>>>>> a261b6256da44e8889091c738cd9e64ae23a2208
     </application>
 
 </manifest>
