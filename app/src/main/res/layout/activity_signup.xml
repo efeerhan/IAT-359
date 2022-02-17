@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg"
     tools:context=".SignupActivity">
 
 
@@ -11,17 +12,12 @@
         android:id="@+id/signupHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="261dp"
-        android:layout_marginBottom="96dp"
-        android:fontFamily="@font/visbyroundbold"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="108dp"
+        android:fontFamily="@font/visbyroundcf_bold"
         android:text="Sign up"
         android:textColor="@color/black"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/inputContainer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:textSize="40sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -79,16 +75,15 @@
 
     <LinearLayout
         android:id="@+id/inputContainer"
-        android:layout_width="359dp"
-        android:layout_height="260dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="24dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/signupHeader">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputEmailCreateLayout"
@@ -133,7 +128,7 @@
                 android:ems="10"
                 android:fontFamily="@font/visbyround"
                 android:inputType="textPassword"
-                android:minHeight="48dp"/>
+                android:minHeight="48dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -144,10 +139,11 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/button_login_2"
-            android:fontFamily="@font/visbyround"
-            android:text="Create account"
+            android:fontFamily="@font/visbyroundcf_bold"
+            android:text="Sign up"
             android:textAllCaps="false"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
