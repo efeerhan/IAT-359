@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.widget.doOnTextChanged
@@ -33,6 +34,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         requestWindowFeature(Window.FEATURE_NO_TITLE)//will hide the title
         supportActionBar?.hide() //hide the title bar
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
@@ -55,8 +57,10 @@ class LoginActivity : AppCompatActivity() {
         login.setOnClickListener{
             if ( validateForm(emailLiveData.value, passwordLiveData.value) ){
                 val savedPass: String? = sharedPref.getString(emailLiveData.value, "not found")
-                if ( passwordLiveData.value == savedPass )
-                    startActivity(Intent(this, HomeActivity::class.java))
+                Toast.makeText(applicationContext,savedPass + " " + passwordLiveData.value,Toast.LENGTH_SHORT).show()
+                if ( passwordLiveData.value == savedPass ){
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
             }
             else
                 Toast.makeText(applicationContext,"Incorrect Info :(",Toast.LENGTH_SHORT).show()
