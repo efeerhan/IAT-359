@@ -32,6 +32,9 @@
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
+        <activity
+            android:name=".mood_diary_result"
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -1,15 +1,15 @@
 package com.group7.momio
 
-import android.Manifest
 import android.annotation.SuppressLint
-import android.content.pm.PackageManager
 import android.location.Location
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Window
 import android.view.WindowManager
-import androidx.core.app.ActivityCompat
+import android.widget.ImageButton
+import androidx.annotation.RequiresApi
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -24,15 +24,22 @@ class MainActivity : AppCompatActivity() {
     private var weatherURL: String = ""
 
 
+    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         requestWindowFeature(Window.FEATURE_NO_TITLE)//will hide the title
         supportActionBar?.hide() //hide the title bar
-        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val settingsButton = findViewById<ImageButton>(R.id.settings)
+
+        settingsButton.setOnClickListener() {
+            val dialog = BottomSheetFrag()
+            dialog.show(supportFragmentManager, dialog.tag)
+        }
+
         client = LocationServices.getFusedLocationProviderClient(this)
-        Log.i("lat", "BAAAALSSSSSSS")
         obtainLocation()
     }
 

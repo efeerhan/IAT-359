@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Toast
@@ -34,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         requestWindowFeature(Window.FEATURE_NO_TITLE)//will hide the title
         supportActionBar?.hide() //hide the title bar
-        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
@@ -55,15 +56,15 @@ class LoginActivity : AppCompatActivity() {
         }
 
         login.setOnClickListener{
-            if ( validateForm(emailLiveData.value, passwordLiveData.value) ){
-                val savedPass: String? = sharedPref.getString(emailLiveData.value, "not found")
-                Toast.makeText(applicationContext,savedPass + " " + passwordLiveData.value,Toast.LENGTH_SHORT).show()
-                if ( passwordLiveData.value == savedPass ){
+            if ( validateForm(emailLiveData.value, passwordLiveData.value) ) {
+                val savedPass: String? = sharedPref.getString(emailLiveData.value, "0")
+                if ( savedPass == "0" )
+                    Toast.makeText(applicationContext,"Email Not Found",Toast.LENGTH_SHORT).show()
+                if ( passwordLiveData.value == savedPass )
                     startActivity(Intent(this, MainActivity::class.java))
-                }
+                else
+                    Toast.makeText(applicationContext,"Incorrect Password",Toast.LENGTH_SHORT).show()
             }
-            else
-                Toast.makeText(applicationContext,"Incorrect Info :(",Toast.LENGTH_SHORT).show()
         }
         signup.setOnClickListener{
             startActivity(Intent(this, SignupActivity::class.java))
