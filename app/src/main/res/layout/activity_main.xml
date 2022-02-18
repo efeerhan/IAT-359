@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:ignore="HardcodedText"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/top_bg" />
+
+    <LinearLayout
+        android:id="@+id/topHorLayout"
+        android:layout_width="337dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/greeting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/visbyroundcf_demibold"
+                android:text="Good morning,"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/visbyroundcf_bold"
+                android:text="Joanna"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/settings"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:background="#00FFFFFF"
+            android:baselineAlignBottom="false"
+            android:contentDescription="settings"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/icon_settings" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/floatHolders"
+        android:layout_width="388dp"
+        android:layout_height="650dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topHorLayout" >
+
+        <FrameLayout
+            android:id="@+id/weatherFloat"
+            android:elevation="2dp"
+            android:layout_gravity="center"
+            android:layout_width="298dp"
+            android:layout_height="90dp"
+            android:background="@drawable/float_background">
+
+            <LinearLayout
+                android:id="@+id/weatherFloatLayout"
+                android:layout_width="298dp"
+                android:layout_height="90dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/weatherFloatIcon"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/weather_sunny"/>
+
+                <TextView
+                    android:id="@+id/weatherFloatTemp"
+                    android:layout_width="80dp"
+                    android:layout_height="25dp"
+                    android:fontFamily="@font/visbyroundcf_regular"
+                    android:text="27 ° C"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"/>
+
+                <LinearLayout
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/weatherFloatCondition"
+                        android:layout_width="80dp"
+                        android:layout_height="25dp"
+                        android:fontFamily="@font/visbyroundcf_bold"
+                        android:text="Sunny"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"/>
+                    <TextView
+                        android:id="@+id/weatherFloatCity"
+                        android:layout_width="80dp"
+                        android:layout_height="25dp"
+                        android:fontFamily="@font/visbyroundcf_regular"
+                        android:text="Surrey"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/chartFloat"
+            android:elevation="2dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_width="298dp"
+            android:layout_height="325dp"
+            android:background="@drawable/float_background">
+            
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/infographics_tmp"
+                android:contentDescription="infographic temp" />
+
+
+            <!--<LinearLayout
+                android:id="@+id/chartFloatVerticalLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:id="@+id/chartFloatTimeswitchLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/chartFloatMonthView"
+                        android:layout_width="80dp"
+                        android:layout_height="30dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="Month"
+                        android:fontFamily="@font/visbyroundcf_bold"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:background="@drawable/gradient_button_background"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/chartFloatYearView"
+                        android:layout_width="60dp"
+                        android:layout_height="30dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="Year"
+                        android:fontFamily="@font/visbyroundcf_bold"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:background="@drawable/gradient_button_background"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/chartFloatAllView"
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:text="All"
+                        android:fontFamily="@font/visbyroundcf_bold"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:background="@drawable/gradient_button_background"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>-->
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/diaryFloat"
+            android:elevation="2dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_width="298dp"
+            android:layout_height="125dp"
+            android:background="@drawable/float_background">
+
+            <ImageButton
+                android:id="@+id/diaryFloatButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="3dp"
+                android:layout_marginVertical="8dp"
+                android:layout_gravity="center"
+                android:src="@drawable/mood_diary"
+                android:contentDescription="Mood Diary Art" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
