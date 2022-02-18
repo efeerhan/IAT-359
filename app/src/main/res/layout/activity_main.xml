@@ -4,19 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg"
     tools:context=".MainActivity">
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitStart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/top_bg" />
 
     <LinearLayout
+        android:id="@+id/topHorLayout"
         android:layout_width="337dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -69,6 +72,49 @@
             android:contentDescription="settings"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/icon_settings" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/floatHolders"
+        android:layout_width="388dp"
+        android:layout_height="650dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topHorLayout"
+        app:layout_constraintVertical_bias="1.0">
+
+        <FrameLayout
+            android:id="@+id/weatherFloat"
+            android:elevation="2dp"
+            android:layout_gravity="center"
+            android:layout_width="298dp"
+            android:layout_height="90dp"
+            android:background="@drawable/weather_background">
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/chartFloat"
+            android:elevation="2dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_width="298dp"
+            android:layout_height="325dp"
+            android:background="@drawable/weather_background">
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/diaryFloat"
+            android:elevation="2dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_width="298dp"
+            android:layout_height="125dp"
+            android:background="@drawable/weather_background">
+        </FrameLayout>
 
     </LinearLayout>
 

@@ -49,13 +49,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="103dp"
         android:layout_marginEnd="92dp"
-        android:layout_marginBottom="30dp"
-        android:fontFamily="@font/visbyround"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/visbyroundbold"
         android:text="We care about you, super mom :)"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/loginButton1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
