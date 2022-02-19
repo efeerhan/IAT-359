@@ -93,7 +93,7 @@
             android:layout_gravity="center"
             android:layout_width="298dp"
             android:layout_height="90dp"
-            android:background="@drawable/float_background">
+            android:background="@drawable/white_background_24radius">
 
             <LinearLayout
                 android:id="@+id/weatherFloatLayout"
@@ -151,7 +151,7 @@
             android:layout_marginTop="30dp"
             android:layout_width="298dp"
             android:layout_height="325dp"
-            android:background="@drawable/float_background">
+            android:background="@drawable/white_background_24radius">
             
             <ImageView
                 android:layout_width="match_parent"
@@ -221,7 +221,7 @@
             android:layout_marginTop="30dp"
             android:layout_width="298dp"
             android:layout_height="125dp"
-            android:background="@drawable/float_background">
+            android:background="@drawable/white_background_24radius">
 
             <ImageButton
                 android:id="@+id/diaryFloatButton"
