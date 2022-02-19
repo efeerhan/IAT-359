@@ -44,32 +44,14 @@
         app:layout_constraintTop_toBottomOf="@+id/loginButton1" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="103dp"
-        android:layout_marginEnd="92dp"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="@font/visbyroundbold"
-        android:text="We care about you, super mom :)"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/loginButton1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.562"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
         android:id="@+id/textView2"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="182dp"
-        android:layout_marginBottom="243dp"
-        android:text="Momio"
         android:fontFamily="@font/caveat"
-        android:textSize="80sp"
+        android:text="Momio"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        android:textSize="80sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

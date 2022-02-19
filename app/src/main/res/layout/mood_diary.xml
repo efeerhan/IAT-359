@@ -15,7 +15,7 @@
         android:layout_marginBottom="62dp"
         android:layout_weight="1"
         android:background="@drawable/button_login_2"
-        android:fontFamily="@font/visbyroundbold"
+        android:fontFamily="@font/visbyroundcf_bold"
         android:text="Start"
         android:textAllCaps="false"
         android:textColor="@color/white"
@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="144dp"
-        android:fontFamily="@font/visbyroundbold"
+        android:fontFamily="@font/visbyroundcf_bold"
         android:text="Mood Diary"
         android:textColor="#FFFFFF"
         android:textSize="28sp"
@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="144dp"
-        android:fontFamily="@font/visbyroundbold"
+        android:fontFamily="@font/visbyroundcf_bold"
         android:text="Mood Diary"
         android:textColor="#FFFFFF"
 
@@ -118,8 +118,7 @@
                         android:text="Happy"
                         android:textAlignment="center"
                         android:textColor="#9878E3"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
+                        android:textSize="30sp"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -151,8 +150,7 @@
                         android:text="Excited"
                         android:textAlignment="center"
                         android:textColor="#9878E3"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
+                        android:textSize="30sp"/>
 
                     <HorizontalScrollView
                         android:id="@+id/horizontalScrollView"
@@ -190,8 +188,7 @@
                         android:text="Energetic"
                         android:textAlignment="center"
                         android:textColor="#9878E3"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
+                        android:textSize="30sp"/>
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
@@ -228,8 +225,7 @@
                         android:text="Neutral"
                         android:textAlignment="center"
                         android:textColor="#9878E3"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
+                        android:textSize="30sp"/>
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
@@ -266,8 +262,7 @@
                         android:text="Exhausted"
                         android:textAlignment="center"
                         android:textColor="#9878E3"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
+                        android:textSize="30sp"/>
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
@@ -304,8 +299,7 @@
                         android:text="Angry"
                         android:textAlignment="center"
                         android:textColor="#9878E3"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
+                        android:textSize="30sp"/>
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
@@ -342,8 +336,7 @@
                         android:text="Crying"
                         android:textAlignment="center"
                         android:textColor="#9878E3"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
+                        android:textSize="30sp"/>
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
@@ -365,7 +358,8 @@
         android:orientation="horizontal"
         android:paddingLeft="31dp"
         android:paddingTop="250dp"
-        app:layout_constraintStart_toStartOf="@+id/guideline2">
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <TextView
@@ -434,8 +428,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/visbyroundcf_light"
-            android:text="S"
             android:paddingRight="31dp"
+            android:text="S"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="32sp" />
