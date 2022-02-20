@@ -166,7 +166,7 @@
         android:layout_marginTop="92dp"
         android:layout_marginEnd="261dp"
         android:layout_marginBottom="96dp"
-        android:fontFamily="@font/visbyroundbold"
+        android:fontFamily="@font/visbyroundcf_bold"
         android:text="Log in"
         android:textColor="@color/black"
         android:textSize="36sp"

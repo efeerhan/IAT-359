@@ -1,5 +1,7 @@
 package com.group7.momio
 
+import android.app.Dialog
+import android.graphics.Color
 import android.os.Bundle
 import android.view.*
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -11,6 +13,7 @@ class BottomSheetFrag : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        dialog?.window?.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         return inflater.inflate(R.layout.bottom_sheet, container, false)
     }
 
@@ -18,6 +21,5 @@ class BottomSheetFrag : BottomSheetDialogFragment() {
         const val TAG = "ModalBottomSheet"
     }
 
-    override fun getTheme(): Int  = R.style.BottomSheetDialogCustom
-
+    override fun getTheme(): Int  = R.style.CustomBottomSheetDialog
 }

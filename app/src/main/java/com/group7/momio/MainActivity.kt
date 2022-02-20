@@ -1,6 +1,7 @@
 package com.group7.momio
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.location.Location
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -33,9 +34,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val settingsButton = findViewById<ImageButton>(R.id.settings)
+        val dialog = BottomSheetFrag()
 
         settingsButton.setOnClickListener() {
-            val dialog = BottomSheetFrag()
             dialog.show(supportFragmentManager, dialog.tag)
         }
 

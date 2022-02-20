@@ -13,7 +13,7 @@
         <item name="android:windowLightNavigationBar">true</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowLightStatusBar">true</item>
-        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogCustom</item>
+        <item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialog</item>
     </style>
 
 </resources>
