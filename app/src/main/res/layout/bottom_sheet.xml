@@ -10,64 +10,131 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="left">
+        android:gravity="left"
+        android:orientation="vertical">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <View
+            android:layout_width="80dp"
+            android:layout_height="5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/pull_bar"/>
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/Language"
-            android:layout_width="wrap_content"
+            app:icon="@drawable/icon_globe"
+            app:iconTint="@null"
+            app:iconSize="25dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:textAlignment="textStart"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/empty"
             android:fontFamily="@font/visbyround"
             android:text="Language"
+            android:textColor="@color/black"
+            android:textAlignment="textStart"
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/resetPassword"
-            android:layout_width="wrap_content"
+            app:icon="@drawable/icon_key"
+            app:iconTint="@null"
+            app:iconSize="25dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
+            android:layout_marginHorizontal="30dp"
             android:background="@drawable/empty"
             android:fontFamily="@font/visbyround"
-            android:text="resetPassword"
-            android:textAllCaps="false"
+            android:text="Reset Password"
+            android:textColor="@color/black"
             android:textAlignment="textStart"
+            android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/help"
-            android:layout_width="wrap_content"
+            app:icon="@drawable/icon_help"
+            app:iconTint="@null"
+            app:iconSize="25dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
+            android:layout_marginHorizontal="30dp"
             android:background="@drawable/empty"
             android:fontFamily="@font/visbyround"
-            android:text="help"
+            android:text="Help"
+            android:textColor="@color/black"
             android:textAlignment="textStart"
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/termsOfService"
-            android:layout_width="wrap_content"
+            app:icon="@drawable/icon_alert"
+            app:iconTint="@null"
+            app:iconSize="25dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
+            android:layout_marginHorizontal="30dp"
             android:background="@drawable/empty"
-            android:textAlignment="textStart"
             android:fontFamily="@font/visbyround"
-            android:text="termsOfService"
+            android:text="Terms of Service"
+            android:textColor="@color/black"
+            android:textAlignment="textStart"
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/settingsDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/settings_divider"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/deleteAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="80dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/empty"
+                android:textColor="@color/grey"
+                android:fontFamily="@font/visbyround"
+                android:text="Delete My Account"
+                android:textAlignment="textStart"
+                android:textAllCaps="false" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/signOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="110dp"
+                android:textColor="@color/dark_purple"
+                android:background="@drawable/empty"
+                android:fontFamily="@font/visbyroundcf_demibold"
+                android:text="Sign out"
+                android:textSize="17sp"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

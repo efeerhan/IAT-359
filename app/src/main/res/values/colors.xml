@@ -11,6 +11,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="bg">#FCFBFE</color>
     <color name="shadow">#5B4492</color>
+    <color name="dimOverlay">#1EBB86FC</color>
     <color name="dark_purple">#31264D</color>
     <color name="grey">#9893A6</color>
     <color name="purple_100">#9878E3</color>
