@@ -29,6 +29,7 @@
         app:srcCompat="@drawable/icon_exit" />
 
     <TextView
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -173,7 +174,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toStartOf="@+id/resultCard"
@@ -183,7 +184,7 @@
         <FrameLayout
             android:id="@+id/first"
             android:layout_width="match_parent"
-            android:layout_height="145dp">
+            android:layout_height="170dp">
 
             <ImageView
                 android:layout_width="180dp"
@@ -241,8 +242,7 @@
         <FrameLayout
             android:id="@+id/second"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:layout_marginTop="8dp">
+            android:layout_height="140dp">
 
             <ImageView
                 android:layout_width="150dp"
@@ -303,8 +303,7 @@
         <FrameLayout
             android:id="@+id/third"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="8dp">
+            android:layout_height="115dp">
 
             <ImageView
                 android:layout_width="120dp"
@@ -359,6 +358,292 @@
             </LinearLayout>
 
         </FrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/calendar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+        <LinearLayout
+            android:id="@+id/day01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:id="@+id/sun"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/visbyroundcf_medium"
+                android:text="S"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/date01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/visbyroundcf_demibold"
+                android:text="15"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/status01"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                app:srcCompat="@drawable/icon_checked" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/day02"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/calendar_white_bg"
+            android:orientation="vertical"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:id="@+id/mon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/visbyroundcf_medium"
+                android:text="M"
+                android:textAlignment="center"
+                android:textColor="@color/purple_100"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/date02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/visbyroundcf_demibold"
+                android:text="16"
+                android:textAlignment="center"
+                android:textColor="@color/purple_100"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/status02"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                app:srcCompat="@drawable/icon_checked" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/day03"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:id="@+id/tue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/visbyroundcf_medium"
+                android:text="T"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/date03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/visbyroundcf_demibold"
+                android:text="17"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/status03"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/icon_checked" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/day04"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:id="@+id/wed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/visbyroundcf_medium"
+                android:text="W"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/date04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/visbyroundcf_demibold"
+                android:text="18"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/status04"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/icon_checked" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/day05"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:id="@+id/thur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/visbyroundcf_medium"
+                android:text="T"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/date05"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/visbyroundcf_demibold"
+                android:text="19"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/status05"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/icon_checked" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/day06"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:id="@+id/fri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/visbyroundcf_medium"
+                android:text="F"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/date06"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/visbyroundcf_demibold"
+                android:text="20"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/status06"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/icon_checked" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/day07"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:id="@+id/sat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/visbyroundcf_medium"
+                android:text="S"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/date07"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/visbyroundcf_demibold"
+                android:text="21"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/status07"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/icon_checked" />
+        </LinearLayout>
 
     </LinearLayout>
 

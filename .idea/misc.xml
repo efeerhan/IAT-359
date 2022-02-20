@@ -7,6 +7,7 @@
         <entry key="..\:/Spring2022/IAT359/IAT-359-NEW/app/src/main/res/drawable/button_login_1.xml" value="0.23981481481481481" />
         <entry key="..\:/Spring2022/IAT359/IAT-359-NEW/app/src/main/res/drawable/button_login_2.xml" value="0.23981481481481481" />
         <entry key="..\:/Spring2022/IAT359/IAT-359-NEW/app/src/main/res/drawable/button_sign_up.xml" value="0.23981481481481481" />
+        <entry key="..\:/Spring2022/IAT359/IAT-359-NEW/app/src/main/res/drawable/calendar_white_bg.xml" value="0.2365296803652968" />
         <entry key="..\:/Spring2022/IAT359/IAT-359-NEW/app/src/main/res/drawable/empty.xml" value="0.23981481481481481" />
         <entry key="..\:/Spring2022/IAT359/IAT-359-NEW/app/src/main/res/drawable/float_background.xml" value="0.23981481481481481" />
         <entry key="..\:/Spring2022/IAT359/IAT-359-NEW/app/src/main/res/drawable/gradient_button_background.xml" value="0.23981481481481481" />
@@ -25,7 +26,7 @@
         <entry key="..\:/Spring2022/IAT359/IAT-359-NEW/app/src/main/res/layout/activity_main.xml" value="0.24048913043478262" />
         <entry key="..\:/Spring2022/IAT359/IAT-359-NEW/app/src/main/res/layout/bottom_sheet.xml" value="0.264" />
         <entry key="..\:/Spring2022/IAT359/IAT-359-NEW/app/src/main/res/layout/mood_diary.xml" value="0.22546296296296298" />
-        <entry key="..\:/Spring2022/IAT359/IAT-359-NEW/app/src/main/res/layout/mood_diary_result.xml" value="0.22546296296296298" />
+        <entry key="..\:/Spring2022/IAT359/IAT-359-NEW/app/src/main/res/layout/mood_diary_result.xml" value="0.4" />
       </map>
     </option>
   </component>
