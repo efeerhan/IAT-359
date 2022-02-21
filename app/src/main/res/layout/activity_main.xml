@@ -9,16 +9,15 @@
     tools:context=".MainActivity">
 
 
-    <ImageView
-        android:id="@+id/imageView"
+    <View
+        android:id="@+id/topBackgroundMain"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitStart"
+        android:layout_height="353dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/top_bg" />
+        android:background="@drawable/top_bg_drawable"/>
 
     <LinearLayout
         android:id="@+id/topHorLayout"

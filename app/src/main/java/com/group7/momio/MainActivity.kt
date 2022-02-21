@@ -1,7 +1,7 @@
 package com.group7.momio
 
 import android.annotation.SuppressLint
-import android.graphics.Color
+import android.content.Intent
 import android.location.Location
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -33,8 +33,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val moodDiary = findViewById<ImageButton>(R.id.diaryFloatButton)
+        moodDiary.setOnClickListener(){
+            startActivity(Intent(this, MoodDiaryActivity::class.java))
+        }
+
         val settingsButton = findViewById<ImageButton>(R.id.settings)
-        val dialog = BottomSheetFrag()
+        val dialog = BottomSheetFragmentActivity()
 
         settingsButton.setOnClickListener() {
             dialog.show(supportFragmentManager, dialog.tag)

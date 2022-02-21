@@ -6,441 +6,646 @@
     android:layout_height="match_parent"
     android:background="@color/bg">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/loginButton2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="62dp"
-        android:layout_weight="1"
-        android:background="@drawable/button_login_2"
-        android:fontFamily="@font/visbyroundcf_bold"
-        android:text="Start"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
-        android:fontFamily="@font/visbyroundcf_bold"
-        android:text="Mood Diary"
-        android:textColor="#FFFFFF"
-        android:textSize="28sp"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitStart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+    <ImageButton
+        android:id="@+id/backButtonDiary1"
+        android:layout_width="44dp"
+        android:elevation="1dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="52dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/top_bg" />
+        android:background="@drawable/back_button_background"
+        app:srcCompat="@drawable/icon_exit_vector" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="44dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="56dp"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon_exit" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
-        android:fontFamily="@font/visbyroundcf_bold"
-        android:text="Mood Diary"
-        android:textColor="#FFFFFF"
-
-        android:textSize="28sp"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <HorizontalScrollView
+    <LinearLayout
+        android:id="@+id/activityLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="400dp"
-            android:layout_marginBottom="150dp"
+            android:layout_height="353dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@drawable/top_bg_drawable" >
 
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
-            app:layout_constraintVertical_bias="0.0"
-
-            tools:layout_editor_absoluteX="0dp">
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="187dp"
-                android:layout_height="250dp"
-                android:layout_margin="30dp"
-                app:cardCornerRadius="30dp"
-                app:cardElevation="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="80dp"
+                android:text="Mood Diary"
+                android:fontFamily="@font/visbyroundcf_bold"
+                android:textColor="@color/white"
+                android:layout_marginLeft="40dp"
+                android:textSize="30sp"/>
 
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:layout_marginTop="30dp"
-                        app:srcCompat="@drawable/mood_happy" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/caveat"
-                        android:text="Happy"
-                        android:textAlignment="center"
-                        android:textColor="#9878E3"
-                        android:textSize="30sp"/>
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="187dp"
-                android:layout_height="250dp"
-                android:layout_margin="30dp"
-                app:cardCornerRadius="30dp"
-                app:cardElevation="10dp">
+            <LinearLayout
+                android:id="@+id/calendar"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:elevation="1dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
+                    android:id="@+id/day01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/imageView2"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:layout_marginTop="30dp"
-                        app:srcCompat="@drawable/mood_excited" />
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingVertical="8dp">
 
                     <TextView
+                        android:id="@+id/sun"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/caveat"
-                        android:text="Excited"
+                        android:fontFamily="@font/visbyroundcf_medium"
+                        android:text="S"
                         android:textAlignment="center"
-                        android:textColor="#9878E3"
-                        android:textSize="30sp"/>
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
 
-                    <HorizontalScrollView
-                        android:id="@+id/horizontalScrollView"
+                    <TextView
+                        android:id="@+id/date01"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingTop="400dp" />
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/visbyroundcf_demibold"
+                        android:text="15"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
 
+                    <ImageView
+                        android:id="@+id/status01"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        app:srcCompat="@drawable/icon_checked" />
                 </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="187dp"
-                android:layout_height="250dp"
-                android:layout_margin="30dp"
-                app:cardCornerRadius="30dp"
-                app:cardElevation="10dp">
 
                 <LinearLayout
+                    android:id="@+id/day02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:layout_marginTop="30dp"
-                        app:srcCompat="@drawable/mood_energetic" />
+                    android:layout_weight="1"
+                    android:background="@drawable/calendar_white_bg"
+                    android:orientation="vertical"
+                    android:paddingVertical="8dp">
 
                     <TextView
+                        android:id="@+id/mon"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/caveat"
-                        android:text="Energetic"
+                        android:fontFamily="@font/visbyroundcf_medium"
+                        android:text="M"
                         android:textAlignment="center"
-                        android:textColor="#9878E3"
-                        android:textSize="30sp"/>
+                        android:textColor="@color/purple_100"
+                        android:textSize="14sp" />
 
-                    <HorizontalScrollView
+                    <TextView
+                        android:id="@+id/date02"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingTop="400dp" />
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/visbyroundcf_demibold"
+                        android:text="16"
+                        android:textAlignment="center"
+                        android:textColor="@color/purple_100"
+                        android:textSize="18sp" />
 
+                    <ImageView
+                        android:id="@+id/status02"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        app:srcCompat="@drawable/icon_checked" />
                 </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="187dp"
-                android:layout_height="250dp"
-                android:layout_margin="30dp"
-                app:cardCornerRadius="30dp"
-                app:cardElevation="10dp">
 
                 <LinearLayout
+                    android:id="@+id/day03"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:layout_marginTop="30dp"
-                        app:srcCompat="@drawable/mood_peaceful" />
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingVertical="8dp">
 
                     <TextView
+                        android:id="@+id/tue"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/caveat"
-                        android:text="Neutral"
+                        android:fontFamily="@font/visbyroundcf_medium"
+                        android:text="T"
                         android:textAlignment="center"
-                        android:textColor="#9878E3"
-                        android:textSize="30sp"/>
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
 
-                    <HorizontalScrollView
+                    <TextView
+                        android:id="@+id/date03"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingTop="400dp" />
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/visbyroundcf_demibold"
+                        android:text="17"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
 
+                    <ImageView
+                        android:id="@+id/status03"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:visibility="invisible"
+                        app:srcCompat="@drawable/icon_checked" />
                 </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="187dp"
-                android:layout_height="250dp"
-                android:layout_margin="30dp"
-                app:cardCornerRadius="30dp"
-                app:cardElevation="10dp">
 
                 <LinearLayout
+                    android:id="@+id/day04"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:layout_marginTop="30dp"
-                        app:srcCompat="@drawable/mood_exhausted" />
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingVertical="8dp">
 
                     <TextView
+                        android:id="@+id/wed"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/caveat"
-                        android:text="Exhausted"
+                        android:fontFamily="@font/visbyroundcf_medium"
+                        android:text="W"
                         android:textAlignment="center"
-                        android:textColor="#9878E3"
-                        android:textSize="30sp"/>
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
 
-                    <HorizontalScrollView
+                    <TextView
+                        android:id="@+id/date04"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingTop="400dp" />
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/visbyroundcf_demibold"
+                        android:text="18"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
 
+                    <ImageView
+                        android:id="@+id/status04"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:visibility="invisible"
+                        app:srcCompat="@drawable/icon_checked" />
                 </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="187dp"
-                android:layout_height="250dp"
-                android:layout_margin="30dp"
-                app:cardCornerRadius="30dp"
-                app:cardElevation="10dp">
 
                 <LinearLayout
+                    android:id="@+id/day05"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:layout_marginTop="30dp"
-                        app:srcCompat="@drawable/mood_angry" />
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingVertical="8dp">
 
                     <TextView
+                        android:id="@+id/thur"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/caveat"
-                        android:text="Angry"
+                        android:fontFamily="@font/visbyroundcf_medium"
+                        android:text="T"
                         android:textAlignment="center"
-                        android:textColor="#9878E3"
-                        android:textSize="30sp"/>
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
 
-                    <HorizontalScrollView
+                    <TextView
+                        android:id="@+id/date05"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingTop="400dp" />
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/visbyroundcf_demibold"
+                        android:text="19"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
 
+                    <ImageView
+                        android:id="@+id/status05"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:visibility="invisible"
+                        app:srcCompat="@drawable/icon_checked" />
                 </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="187dp"
-                android:layout_height="250dp"
-                android:layout_margin="30dp"
-                app:cardCornerRadius="30dp"
-                app:cardElevation="10dp">
 
                 <LinearLayout
+                    android:id="@+id/day06"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:layout_marginTop="30dp"
-                        app:srcCompat="@drawable/mood_crying" />
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingVertical="8dp">
 
                     <TextView
+                        android:id="@+id/fri"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/caveat"
-                        android:text="Crying"
+                        android:fontFamily="@font/visbyroundcf_medium"
+                        android:text="F"
                         android:textAlignment="center"
-                        android:textColor="#9878E3"
-                        android:textSize="30sp"/>
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
 
-                    <HorizontalScrollView
+                    <TextView
+                        android:id="@+id/date06"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingTop="400dp" />
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/visbyroundcf_demibold"
+                        android:text="20"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
 
+                    <ImageView
+                        android:id="@+id/status06"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:visibility="invisible"
+                        app:srcCompat="@drawable/icon_checked" />
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                <LinearLayout
+                    android:id="@+id/day07"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingVertical="8dp">
+
+                    <TextView
+                        android:id="@+id/sat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/visbyroundcf_medium"
+                        android:text="S"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/date07"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/visbyroundcf_demibold"
+                        android:text="21"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/status07"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:visibility="invisible"
+                        app:srcCompat="@drawable/icon_checked" />
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 
-
-    </HorizontalScrollView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingLeft="31dp"
-        android:paddingTop="250dp"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="parent">
-
-
         <TextView
-            android:layout_width="0dp"
+            android:id="@+id/howDoYouFeel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/visbyroundcf_light"
-            android:text="S"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="32sp" />
+            android:layout_gravity="center"
+            android:layout_marginVertical="25dp"
+            android:fontFamily="@font/visbyroundcf_demibold"
+            android:text="How do you feel today?"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topBackground" />
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.753"
+            tools:layout_editor_absoluteX="0dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+                app:layout_constraintVertical_bias="0.0"
+                tools:layout_editor_absoluteX="0dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/happyCard"
+                    android:layout_width="@dimen/mood_card_horizontal"
+                    android:layout_height="@dimen/mood_card_vertical"
+                    android:layout_marginLeft="32dp"
+                    app:cardCornerRadius="30dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="16dp"
+                            app:srcCompat="@drawable/mood_happy" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/caveat"
+                            android:text="Happy"
+                            android:textAlignment="center"
+                            android:textColor="#9878E3"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/excitedCard"
+                    android:layout_width="@dimen/mood_card_horizontal"
+                    android:layout_height="@dimen/mood_card_vertical"
+                    android:layout_marginLeft="32dp"
+                    app:cardCornerRadius="30dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
+                            android:layout_marginTop="16dp"
+                            app:srcCompat="@drawable/mood_excited" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/caveat"
+                            android:text="Excited"
+                            android:textAlignment="center"
+                            android:textColor="#9878E3"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/mood_card_horizontal"
+                    android:layout_height="@dimen/mood_card_vertical"
+                    android:layout_marginLeft="32dp"
+                    app:cardCornerRadius="30dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
 
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/visbyroundcf_light"
-            android:text="M"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="32sp" />
+                        <ImageView
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
+                            android:layout_marginTop="16dp"
+                            app:srcCompat="@drawable/mood_energetic" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/visbyroundcf_light"
-            android:text="T"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="32sp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/caveat"
+                            android:text="Energetic"
+                            android:textAlignment="center"
+                            android:textColor="#9878E3"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/visbyroundcf_light"
-            android:text="W"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="32sp" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/visbyroundcf_light"
-            android:text="T"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="32sp" />
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="400dp" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/visbyroundcf_light"
-            android:text="F"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="32sp" />
+                    </LinearLayout>
 
-        <TextView
-            android:layout_width="0dp"
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/mood_card_horizontal"
+                    android:layout_height="@dimen/mood_card_vertical"
+                    android:layout_marginLeft="32dp"
+                    app:cardCornerRadius="30dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
+                            android:layout_marginTop="16dp"
+                            app:srcCompat="@drawable/mood_peaceful" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/caveat"
+                            android:text="Peaceful"
+                            android:textAlignment="center"
+                            android:textColor="#9878E3"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="400dp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/mood_card_horizontal"
+                    android:layout_height="@dimen/mood_card_vertical"
+                    android:layout_marginLeft="32dp"
+                    app:cardCornerRadius="30dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
+                            android:layout_marginTop="16dp"
+                            app:srcCompat="@drawable/mood_exhausted" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/caveat"
+                            android:text="Exhausted"
+                            android:textAlignment="center"
+                            android:textColor="#9878E3"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="400dp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/mood_card_horizontal"
+                    android:layout_height="@dimen/mood_card_vertical"
+                    android:layout_marginLeft="32dp"
+                    app:cardCornerRadius="30dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
+                            android:layout_marginTop="16dp"
+                            app:srcCompat="@drawable/mood_angry" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/caveat"
+                            android:text="Angry"
+                            android:textAlignment="center"
+                            android:textColor="#9878E3"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="400dp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/mood_card_horizontal"
+                    android:layout_height="@dimen/mood_card_vertical"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"
+                    app:cardCornerRadius="30dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
+                            android:layout_marginTop="16dp"
+                            app:srcCompat="@drawable/mood_crying" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/caveat"
+                            android:text="Crying"
+                            android:textAlignment="center"
+                            android:textColor="#9878E3"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="400dp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+
+        </HorizontalScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/okButtonDiary"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/visbyroundcf_light"
-            android:paddingRight="31dp"
-            android:text="S"
-            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/button_login_2"
+            android:fontFamily="@font/visbyroundcf_bold"
+            android:text="Okay"
+            android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="32sp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2" />
 
     </LinearLayout>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="31dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
