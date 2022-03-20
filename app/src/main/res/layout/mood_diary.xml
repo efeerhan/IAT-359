@@ -65,11 +65,11 @@
                     android:paddingVertical="8dp">
 
                     <TextView
-                        android:id="@+id/sun"
+                        android:id="@+id/mon"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/visbyroundcf_medium"
-                        android:text="S"
+                        android:text="M"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
@@ -99,18 +99,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/calendar_white_bg"
                     android:orientation="vertical"
                     android:paddingVertical="8dp">
 
                     <TextView
-                        android:id="@+id/mon"
+                        android:id="@+id/tue"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/visbyroundcf_medium"
-                        android:text="M"
+                        android:text="T"
                         android:textAlignment="center"
-                        android:textColor="@color/purple_100"
+                        android:textColor="@color/white"
                         android:textSize="14sp" />
 
                     <TextView
@@ -121,7 +120,7 @@
                         android:fontFamily="@font/visbyroundcf_demibold"
                         android:text="16"
                         android:textAlignment="center"
-                        android:textColor="@color/purple_100"
+                        android:textColor="@color/white"
                         android:textSize="18sp" />
 
                     <ImageView
@@ -142,11 +141,11 @@
                     android:paddingVertical="8dp">
 
                     <TextView
-                        android:id="@+id/tue"
+                        android:id="@+id/wed"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/visbyroundcf_medium"
-                        android:text="T"
+                        android:text="W"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
@@ -181,11 +180,11 @@
                     android:paddingVertical="8dp">
 
                     <TextView
-                        android:id="@+id/wed"
+                        android:id="@+id/thur"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/visbyroundcf_medium"
-                        android:text="W"
+                        android:text="T"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
@@ -220,11 +219,11 @@
                     android:paddingVertical="8dp">
 
                     <TextView
-                        android:id="@+id/thur"
+                        android:id="@+id/fri"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/visbyroundcf_medium"
-                        android:text="T"
+                        android:text="F"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
@@ -259,11 +258,11 @@
                     android:paddingVertical="8dp">
 
                     <TextView
-                        android:id="@+id/fri"
+                        android:id="@+id/sat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/visbyroundcf_medium"
-                        android:text="F"
+                        android:text="S"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
@@ -298,7 +297,7 @@
                     android:paddingVertical="8dp">
 
                     <TextView
-                        android:id="@+id/sat"
+                        android:id="@+id/sun"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/visbyroundcf_medium"
@@ -433,6 +432,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/energeticCard"
                     android:layout_width="@dimen/mood_card_horizontal"
                     android:layout_height="@dimen/mood_card_vertical"
                     android:layout_marginLeft="32dp"
@@ -473,6 +473,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/peacefulCard"
                     android:layout_width="@dimen/mood_card_horizontal"
                     android:layout_height="@dimen/mood_card_vertical"
                     android:layout_marginLeft="32dp"
@@ -511,6 +512,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/exhaustedCard"
                     android:layout_width="@dimen/mood_card_horizontal"
                     android:layout_height="@dimen/mood_card_vertical"
                     android:layout_marginLeft="32dp"
@@ -549,6 +551,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/angryCard"
                     android:layout_width="@dimen/mood_card_horizontal"
                     android:layout_height="@dimen/mood_card_vertical"
                     android:layout_marginLeft="32dp"
@@ -587,6 +590,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cryingCard"
                     android:layout_width="@dimen/mood_card_horizontal"
                     android:layout_height="@dimen/mood_card_vertical"
                     android:layout_marginLeft="32dp"

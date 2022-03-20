@@ -11,6 +11,7 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageButton
 import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.AppCompatButton
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -33,8 +34,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val db by lazy { MoodDatabase.getDatabase(this) }
+        val dao = db.getDao()
+
         val moodDiary = findViewById<ImageButton>(R.id.diaryFloatButton)
-        moodDiary.setOnClickListener(){
+        moodDiary.setOnClickListener{
             startActivity(Intent(this, MoodDiaryActivity::class.java))
         }
 
@@ -45,11 +49,11 @@ class MainActivity : AppCompatActivity() {
             dialog.show(supportFragmentManager, dialog.tag)
         }
 
-        client = LocationServices.getFusedLocationProviderClient(this)
-        obtainLocation()
+        //client = LocationServices.getFusedLocationProviderClient(this)
+        //obtainLocation()
     }
 
-    @SuppressLint("MissingPermission")
+    /*@SuppressLint("MissingPermission")
     private fun obtainLocation() {
         Log.i("lat", "obtainLocation")
         // get the last location
@@ -93,5 +97,5 @@ class MainActivity : AppCompatActivity() {
             // In case of any error
             { Log.i("oops", "That didn't work!") })
         queue.add(stringReq)
-    }
+    }*/
 }
