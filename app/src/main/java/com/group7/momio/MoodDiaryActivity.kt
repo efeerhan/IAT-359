@@ -21,13 +21,12 @@ import kotlin.math.absoluteValue
 
 
 class MoodDiaryActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        requestWindowFeature(Window.FEATURE_NO_TITLE)//will hide the title
-        supportActionBar?.hide() //hide the title bar
-        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.mood_diary)
 
+    private fun whiteBackground(view: LinearLayout) {
+        view.setBackgroundResource(R.drawable.calendar_white_bg)
+    }
+
+    private fun calendarBackground(){
         val daysBackgroundList = listOf<LinearLayout>(
             findViewById(R.id.day01),   //monday
             findViewById(R.id.day02),   //tuesday
@@ -37,26 +36,6 @@ class MoodDiaryActivity : AppCompatActivity() {
             findViewById(R.id.day06),   //saturday
             findViewById(R.id.day07)    //sunday
         )
-
-        val cardsList = listOf<CardView>(
-            findViewById(R.id.happyCard),
-            findViewById(R.id.excitedCard),
-            findViewById(R.id.energeticCard),
-            findViewById(R.id.peacefulCard),
-            findViewById(R.id.exhaustedCard),
-            findViewById(R.id.angryCard),
-            findViewById(R.id.cryingCard)
-        )
-
-        //TODO: Make selecting an emotion choose a value
-
-        for ( card in cardsList ) {
-            card.setOnClickListener{
-                for ( x in cardsList )
-                    x.cardElevation = 10F
-                card.cardElevation = 40F
-            }
-        }
 
         val current = LocalDateTime.now()
 
@@ -97,6 +76,46 @@ class MoodDiaryActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE)//will hide the title
+        supportActionBar?.hide() //hide the title bar
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.mood_diary)
+
+        calendarBackground()
+
+        val cardsList = listOf<CardView>(
+            findViewById(R.id.happyCard),
+            findViewById(R.id.excitedCard),
+            findViewById(R.id.energeticCard),
+            findViewById(R.id.peacefulCard),
+            findViewById(R.id.exhaustedCard),
+            findViewById(R.id.angryCard),
+            findViewById(R.id.cryingCard)
+        )
+
+        var emotionalValue = -1
+
+        for ( card in cardsList ) {
+            card.setOnClickListener{
+                for ( x in cardsList )
+                    x.cardElevation = 10F
+                card.cardElevation = 40F
+                when ( card ) {
+                    cardsList[0] -> emotionalValue = EValue.HAPPY.emotion
+                    cardsList[1] -> emotionalValue = EValue.EXCITED.emotion
+                    cardsList[2] -> emotionalValue = EValue.ENERGETIC.emotion
+                    cardsList[3] -> emotionalValue = EValue.PEACEFUL.emotion
+                    cardsList[4] -> emotionalValue = EValue.EXHAUSTED.emotion
+                    cardsList[5] -> emotionalValue = EValue.ANGRY.emotion
+                    cardsList[6] -> emotionalValue = EValue.CRYING.emotion
+                }
+            }
+        }
+
         val okayButton = findViewById<AppCompatButton>(R.id.okButtonDiary)
         val backButton = findViewById<ImageButton>(R.id.backButtonDiary1)
 
@@ -104,12 +123,10 @@ class MoodDiaryActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
         }
 
+        //THIS IS OKAY BUTTON. MAKE THIS PUT THE VARIABLE "emotionalValue" INTO TODAY'S SLOT
+        //IN THE DATABASE WITH AN INSERT FUNCTION CALL.
         okayButton.setOnClickListener{
             startActivity(Intent(this, MoodDiaryResultActivity::class.java))
         }
-    }
-
-    private fun whiteBackground(view: LinearLayout) {
-        view.setBackgroundResource(R.drawable.calendar_white_bg)
     }
 }

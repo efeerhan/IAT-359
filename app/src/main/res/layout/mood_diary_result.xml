@@ -47,6 +47,7 @@
                 android:baselineAligned="false">
 
                 <LinearLayout
+                    android:id="@+id/rDay01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -57,7 +58,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/visbyroundcf_medium"
-                        android:text="S"
+                        android:text="M"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
@@ -81,41 +82,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/calendar_white_bg"
-                    android:orientation="vertical"
-                    android:paddingVertical="8dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/visbyroundcf_medium"
-                        android:text="M"
-                        android:textAlignment="center"
-                        android:textColor="@color/purple_100"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="@font/visbyroundcf_demibold"
-                        android:text="16"
-                        android:textAlignment="center"
-                        android:textColor="@color/purple_100"
-                        android:textSize="18sp" />
-
-                    <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="8dp"
-                        app:srcCompat="@drawable/icon_checked" />
-                </LinearLayout>
-
-                <LinearLayout
+                    android:id="@+id/rDay02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -127,6 +94,41 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/visbyroundcf_medium"
                         android:text="T"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/visbyroundcf_demibold"
+                        android:text="16"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        app:srcCompat="@drawable/icon_checked" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rDay03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingVertical="8dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/visbyroundcf_medium"
+                        android:text="W"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
@@ -151,6 +153,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/rDay04"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -161,7 +164,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/visbyroundcf_medium"
-                        android:text="W"
+                        android:text="T"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
@@ -186,6 +189,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/rDay05"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -196,7 +200,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/visbyroundcf_medium"
-                        android:text="T"
+                        android:text="F"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
@@ -221,6 +225,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/rDay06"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -231,7 +236,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/visbyroundcf_medium"
-                        android:text="F"
+                        android:text="S"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
@@ -256,6 +261,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/rDay07"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

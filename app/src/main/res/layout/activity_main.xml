@@ -105,8 +105,7 @@
                     android:id="@+id/weatherFloatIcon"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/weather_sunny"/>
+                    android:layout_gravity="center" />
 
                 <TextView
                     android:id="@+id/weatherFloatTemp"
@@ -151,12 +150,12 @@
             android:layout_width="298dp"
             android:layout_height="325dp"
             android:background="@drawable/white_background_24radius">
-            
-            <ImageView
+
+            <com.anychart.AnyChartView
+                android:id="@+id/any_chart_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/infographics_tmp"
-                android:contentDescription="infographic temp" />
+                android:layout_margin="10dp" />
 
 
             <!--<LinearLayout
