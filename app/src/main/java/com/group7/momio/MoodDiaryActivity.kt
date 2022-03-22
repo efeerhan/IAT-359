@@ -105,13 +105,13 @@ class MoodDiaryActivity : AppCompatActivity() {
                     x.cardElevation = 10F
                 card.cardElevation = 40F
                 when ( card ) {
-                    cardsList[0] -> emotionalValue = EValue.HAPPY.emotion
-                    cardsList[1] -> emotionalValue = EValue.EXCITED.emotion
-                    cardsList[2] -> emotionalValue = EValue.ENERGETIC.emotion
-                    cardsList[3] -> emotionalValue = EValue.PEACEFUL.emotion
-                    cardsList[4] -> emotionalValue = EValue.EXHAUSTED.emotion
-                    cardsList[5] -> emotionalValue = EValue.ANGRY.emotion
-                    cardsList[6] -> emotionalValue = EValue.CRYING.emotion
+                    cardsList[0] -> emotionalValue = HAPPY
+                    cardsList[1] -> emotionalValue = EXCITED
+                    cardsList[2] -> emotionalValue = ENERGETIC
+                    cardsList[3] -> emotionalValue = PEACEFUL
+                    cardsList[4] -> emotionalValue = EXHAUSTED
+                    cardsList[5] -> emotionalValue = ANGRY
+                    cardsList[6] -> emotionalValue = CRYING
                 }
             }
         }
@@ -128,5 +128,15 @@ class MoodDiaryActivity : AppCompatActivity() {
         okayButton.setOnClickListener{
             startActivity(Intent(this, MoodDiaryResultActivity::class.java))
         }
+    }
+
+    companion object {
+        const val HAPPY = 6
+        const val EXCITED = 5
+        const val ENERGETIC = 4
+        const val PEACEFUL = 3
+        const val EXHAUSTED = 2
+        const val ANGRY = 1
+        const val CRYING = 0
     }
 }

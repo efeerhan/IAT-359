@@ -1,15 +1,10 @@
 package com.group7.momio
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
 
-@Database(
-    version = 1,
-    entities = [MoodMonth::class]
-)
-
+@Database(version = 1, entities = [MoodMonth::class])
+@TypeConverters(Converters::class)
 abstract class MoodDatabase : RoomDatabase() {
 
     abstract fun getDao(): DataAccess

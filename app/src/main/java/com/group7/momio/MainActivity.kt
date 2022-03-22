@@ -73,24 +73,14 @@ class MainActivity : AppCompatActivity() {
         val chart = AnyChart.pie()
         val data = mutableListOf<DataEntry>()
 
-        val month: MoodMonth = dao.getMonth(currentMonth)
-
         var neutral = 0
         var positive = 0
         var negative = 0
 
         try {
-            val dataField = mutableListOf<Int>()
-
-            val fields: Array<Field> = month.javaClass.declaredFields
-            for ( x in fields ) {
-                x.isAccessible = true
-                dataField.add(x.getInt(month))
-            }
-            dataField.removeAt(31)
-            println(dataField)
-
-            for ( num in dataField ) {
+            val month: MoodMonth = dao.getMonth(currentMonth)
+            val monthArray = month.moodDayArray
+            for ( num in monthArray ) {
                 if ( num == 0 )
                     neutral++
                 if (num in 1..3)
