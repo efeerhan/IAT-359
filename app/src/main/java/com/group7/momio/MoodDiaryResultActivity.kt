@@ -1,8 +1,11 @@
 package com.group7.momio
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageButton
@@ -12,10 +15,12 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.text.isDigitsOnly
 import java.lang.IndexOutOfBoundsException
-import java.lang.NullPointerException
 import java.time.LocalDateTime
+import kotlin.math.log
 
 class MoodDiaryResultActivity : AppCompatActivity() {
+
+    private val current: LocalDateTime = LocalDateTime.now()
 
     private fun whiteBackground(view: LinearLayout) {
         view.setBackgroundResource(R.drawable.calendar_white_bg)
@@ -23,17 +28,15 @@ class MoodDiaryResultActivity : AppCompatActivity() {
 
     private fun calendarBackground(){
         val daysBackgroundList = listOf<LinearLayout>(
-            findViewById(R.id.day01),   //monday
-            findViewById(R.id.day02),   //tuesday
-            findViewById(R.id.day03),   //wednesday
-            findViewById(R.id.day04),   //thursday
-            findViewById(R.id.day05),   //friday
-            findViewById(R.id.day06),   //saturday
-            findViewById(R.id.day07)    //sunday
+            findViewById(R.id.rDay01),   //monday
+            findViewById(R.id.rDay02),   //tuesday
+            findViewById(R.id.rDay03),   //wednesday
+            findViewById(R.id.rDay04),   //thursday
+            findViewById(R.id.rDay05),   //friday
+            findViewById(R.id.rDay06),   //saturday
+            findViewById(R.id.rDay07)    //sunday
         )
-
-        val current = LocalDateTime.now()
-
+        
         val dayOfMonth = current.dayOfMonth
         val dayOfWeek = current.dayOfWeek.value
 
@@ -153,61 +156,93 @@ class MoodDiaryResultActivity : AppCompatActivity() {
 
     }
 
-    private fun getMonthMood() {
-
-        val currentMonth = LocalDateTime.now().month.value
-        val db = MoodDatabase.getDatabase(this)
-        val dao = db.getDao()
-
-        var crying = 0
-        var angry = 0
-        var exhausted = 0
-        var peaceful = 0
-        var happy = 0
-        var excited = 0
-        var energetic = 0
-        val list = arrayListOf(
-            crying,
-            angry,
-            exhausted,
-            peaceful,
-            happy,
-            excited,
-            energetic)
-
-        try {
-            val month: MoodMonth = dao.getMonth(currentMonth)
-            val monthArray = month.moodDayArray
-            for ( num in monthArray ) {
-                when ( num ) {
-                    0 -> crying++
-                    1 -> angry++
-                    2 -> exhausted++
-                    3 -> peaceful++
-                    4 -> happy++
-                    5 -> excited++
-                    6 -> energetic++
-                }
-            }
-        } catch (e: NullPointerException){
-            peaceful++
-        }
-
-        val big = list.maxOrNull()
-        list.remove(big)
-        val mid = list.maxOrNull()
-        list.remove(mid)
-        val low = list.maxOrNull()
-        list.remove(low)
+    private fun getMonthMood(month: Int) {
 
         val bigImageView = findViewById<ImageView>(R.id.img_1)
         val bigTextView = findViewById<TextView>(R.id.mood_1)
+        val bigCardView = findViewById<CardView>(R.id.first)
 
         val midImageView = findViewById<ImageView>(R.id.img_2)
         val midTextView = findViewById<TextView>(R.id.mood_2)
-
         val lowImageView = findViewById<ImageView>(R.id.img_3)
         val lowTextView = findViewById<TextView>(R.id.mood_3)
+
+        val db = MoodDatabase.getDatabase(this)
+        val dao = db.getDao()
+
+        val list = arrayListOf(0,0,0,0,0,0,0)
+
+        val monthObject = dao.getMonth(month)
+        for ( num in monthObject.moodDayArray ) {
+            when ( num ) {
+                0 -> list[0]++
+                1 -> list[1]++
+                2 -> list[2]++
+                3 -> list[3]++
+                4 -> list[4]++
+                5 -> list[5]++
+                6 -> list[6]++
+            }
+        }
+
+        println(list)
+
+        val big = list.indexOf(list.maxOrNull())
+        setCardMood(bigImageView, bigTextView, big)
+        list.removeAt(big)
+
+        val midVal = list.maxOrNull()
+        if ( midVal != 0 ) {
+
+            bigCardView.
+
+            val mid = list.indexOf(list.maxOrNull())
+            setCardMood(midImageView, midTextView, mid)
+            list.removeAt(mid)
+
+            val low = list.indexOf(list.maxOrNull())
+            setCardMood(lowImageView, lowTextView, low)
+            list.removeAt(low)
+        }
+        else {
+            findViewById<CardView>(R.id.second).visibility = View.GONE
+            findViewById<CardView>(R.id.third).visibility = View.GONE
+        }
+
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun setCardMood(img: ImageView, text: TextView, mood: Int){
+        when ( mood ){
+            0 -> {
+                img.setImageResource(R.drawable.mood_crying)
+                text.text = "Crying"
+            }
+            1 -> {
+                img.setImageResource(R.drawable.mood_angry)
+                text.text = "Angry"
+            }
+            2 -> {
+                img.setImageResource(R.drawable.mood_exhausted)
+                text.text = "Exhausted"
+            }
+            3 -> {
+                img.setImageResource(R.drawable.mood_peaceful)
+                text.text = "Peaceful"
+            }
+            4 -> {
+                img.setImageResource(R.drawable.mood_energetic)
+                text.text = "Energetic"
+            }
+            5 -> {
+                img.setImageResource(R.drawable.mood_excited)
+                text.text = "Excited"
+            }
+            6 -> {
+                img.setImageResource(R.drawable.mood_happy)
+                text.text = "Happy"
+            }
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -219,9 +254,11 @@ class MoodDiaryResultActivity : AppCompatActivity() {
 
         calendarBackground()
 
+        getMonthMood(current.monthValue)
+
         val backButton = findViewById<ImageButton>(R.id.backButtonDiary2)
 
-        backButton.setOnClickListener(){
+        backButton.setOnClickListener{
             startActivity(Intent(this, MainActivity::class.java))
         }
     }
