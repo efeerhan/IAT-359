@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/back_button_background.xml" value="0.5835897435897436" />
+        <entry key="app/src/main/res/drawable/button_disabled.xml" value="0.33697916666666666" />
         <entry key="app/src/main/res/drawable/button_login_1.xml" value="0.5835897435897436" />
         <entry key="app/src/main/res/drawable/button_login_2.xml" value="0.5835897435897436" />
         <entry key="app/src/main/res/drawable/gradient_button_background.xml" value="0.5835897435897436" />

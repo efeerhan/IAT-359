@@ -13,6 +13,8 @@ import java.util.*
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.text.isDigitsOnly
+import java.lang.IndexOutOfBoundsException
+import java.lang.NullPointerException
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.ZonedDateTime
@@ -47,11 +49,91 @@ class MoodDiaryActivity : AppCompatActivity() {
         val daysBefore = 6 - daysAfter
         val dayRange = mutableListOf<Int>()
 
-        for ( i in daysBefore downTo 1 )
-            dayRange.add(dayOfMonth-i)
+        var numBefore = 30
+        var numBeforeExtra = 31
+        var numBeforeFeb = 28
+        var numBeforeFebLeap = 29
+        var numAfter = 1
+
+        for ( i in daysBefore downTo 1 ) {
+            if ( arrayOf(1,3,5,7,8,10,12).contains(current.monthValue-1) ) {
+                if (dayOfMonth - i < 1)
+                    try {
+                        dayRange.add(dayRange.size-1, numBeforeExtra)
+                        numBeforeExtra--
+                    } catch (e: IndexOutOfBoundsException) {
+                        dayRange.add(numBeforeExtra--)
+                    }
+                else
+                    dayRange.add(dayOfMonth - i)
+            }
+            if ( !arrayOf(1,3,5,7,8,10,12).contains(current.monthValue-1) && current.monthValue-1 != 2 ) {
+                if (dayOfMonth - i < 1)
+                    try {
+                        dayRange.add(dayRange.size-1, numBefore)
+                        numBefore--
+                    } catch (e: IndexOutOfBoundsException) {
+                        dayRange.add(numBefore--)
+                    }
+                else
+                    dayRange.add(dayOfMonth - i)
+            }
+            if ( current.monthValue-1 == 2 && current.year % 4 != 0 ) {
+                if (dayOfMonth - i < 1)
+                    try {
+                        dayRange.add(dayRange.size-1, numBeforeFeb)
+                        numBeforeFeb--
+                    } catch (e: IndexOutOfBoundsException) {
+                        dayRange.add(numBeforeFeb--)
+                    }
+                else
+                    dayRange.add(dayOfMonth - i)
+            }
+            if ( current.monthValue-1 == 2 && current.year % 4 == 0 ) {
+                if (dayOfMonth - i < 1)
+                    try {
+                        dayRange.add(dayRange.size-1, numBeforeFebLeap)
+                        numBeforeFebLeap--
+                    } catch (e: IndexOutOfBoundsException) {
+                        dayRange.add(numBeforeFebLeap--)
+                    }
+                else
+                    dayRange.add(dayOfMonth - i)
+            }
+        }
+
+
         dayRange.add(dayOfMonth)
-        for ( i in 1..daysAfter )
-            dayRange.add(dayOfMonth+i)
+
+        for ( i in 1..daysAfter ){
+            if ( arrayOf(1,3,5,7,8,10,12).contains(current.monthValue) ) {
+                if (dayOfMonth + i > 31)
+                    dayRange.add(numAfter++)
+                else
+                    dayRange.add(dayOfMonth + i)
+            }
+            if ( !arrayOf(1,3,5,7,8,10,12).contains(current.monthValue) && current.monthValue != 2 ) {
+                if (dayOfMonth + i > 30)
+                    dayRange.add(numAfter++)
+                else
+                    dayRange.add(dayOfMonth + i)
+            }
+            if ( current.monthValue == 2 && current.year % 4 != 0 ) {
+                if (dayOfMonth + i > 28)
+                    dayRange.add(numAfter++)
+                else
+                    dayRange.add(dayOfMonth + i)
+            }
+            if ( current.monthValue == 2 && current.year % 4 == 0 ) {
+                if (dayOfMonth + i > 29)
+                    dayRange.add(numAfter++)
+                else
+                    dayRange.add(dayOfMonth + i)
+            }
+
+
+        }
+
 
         var num = 0
 
@@ -85,7 +167,12 @@ class MoodDiaryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mood_diary)
 
+        val okayButton: AppCompatButton = findViewById(R.id.okButtonDiary)
+        val backButton: ImageButton = findViewById(R.id.backButtonDiary1)
+
         calendarBackground()
+        okayButton.isEnabled = false
+        okayButton.setBackgroundResource(R.drawable.button_disabled)
 
         val cardsList = listOf<CardView>(
             findViewById(R.id.happyCard),
@@ -101,6 +188,8 @@ class MoodDiaryActivity : AppCompatActivity() {
 
         for ( card in cardsList ) {
             card.setOnClickListener{
+                okayButton.setBackgroundResource(R.drawable.button_login_2)
+                okayButton.isEnabled = true
                 for ( x in cardsList )
                     x.cardElevation = 10F
                 card.cardElevation = 40F
@@ -116,16 +205,24 @@ class MoodDiaryActivity : AppCompatActivity() {
             }
         }
 
-        val okayButton = findViewById<AppCompatButton>(R.id.okButtonDiary)
-        val backButton = findViewById<ImageButton>(R.id.backButtonDiary1)
-
         backButton.setOnClickListener{
             startActivity(Intent(this, MainActivity::class.java))
         }
 
-        //THIS IS OKAY BUTTON. MAKE THIS PUT THE VARIABLE "emotionalValue" INTO TODAY'S SLOT
-        //IN THE DATABASE WITH AN INSERT FUNCTION CALL.
         okayButton.setOnClickListener{
+            val dateData = LocalDateTime.now()
+            val db = MoodDatabase.getDatabase(this)
+            val dao = db.getDao()
+            var temp = dao.getMonth(dateData.monthValue)
+            try {
+                temp.moodDayArray[dateData.dayOfMonth-1] = emotionalValue
+            } catch (e: NullPointerException ) {
+                temp = MoodMonth(dateData.monthValue).apply {
+                    moodDayArray[dateData.dayOfMonth-1] = emotionalValue
+                }
+            }
+
+            dao.insert(temp)
             startActivity(Intent(this, MoodDiaryResultActivity::class.java))
         }
     }

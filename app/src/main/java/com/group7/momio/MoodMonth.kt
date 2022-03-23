@@ -27,4 +27,12 @@ data class MoodMonth(
         result = 31 * result + moodDayArray.contentHashCode()
         return result
     }
+
+    fun hasExtraDay(): Boolean {
+        return arrayOf(1,3,5,7,8,10,12).contains(month)
+    }
+
+    fun isFebruary(): Boolean {
+        return month == 2
+    }
 }

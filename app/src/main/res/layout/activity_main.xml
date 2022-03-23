@@ -5,19 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg"
-    tools:ignore="HardcodedText"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="HardcodedText">
 
 
     <View
         android:id="@+id/topBackgroundMain"
         android:layout_width="match_parent"
         android:layout_height="353dp"
+        android:background="@drawable/top_bg_drawable"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/top_bg_drawable"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/topHorLayout"
@@ -26,6 +26,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="24dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,20 +41,11 @@
                 android:id="@+id/greeting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:fontFamily="@font/visbyroundcf_demibold"
-                android:text="Good morning,"
+                android:text="Good morning"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/username"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:fontFamily="@font/visbyroundcf_bold"
-                android:text="Joanna"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="23sp" />
 
         </LinearLayout>
 
@@ -84,15 +76,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topHorLayout" >
+        app:layout_constraintTop_toBottomOf="@+id/topHorLayout">
 
         <FrameLayout
             android:id="@+id/weatherFloat"
-            android:elevation="2dp"
-            android:layout_gravity="center"
             android:layout_width="298dp"
             android:layout_height="90dp"
-            android:background="@drawable/white_background_24radius">
+            android:layout_gravity="center"
+            android:background="@drawable/white_background_24radius"
+            android:elevation="2dp">
 
             <LinearLayout
                 android:id="@+id/weatherFloatLayout"
@@ -114,13 +106,14 @@
                     android:fontFamily="@font/visbyroundcf_regular"
                     android:text="27 ° C"
                     android:textColor="@color/black"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
 
                 <LinearLayout
                     android:layout_width="90dp"
                     android:layout_height="90dp"
                     android:gravity="center"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/weatherFloatCondition"
                         android:layout_width="80dp"
@@ -128,7 +121,8 @@
                         android:fontFamily="@font/visbyroundcf_bold"
                         android:text="Sunny"
                         android:textColor="@color/black"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp" />
+
                     <TextView
                         android:id="@+id/weatherFloatCity"
                         android:layout_width="80dp"
@@ -136,7 +130,7 @@
                         android:fontFamily="@font/visbyroundcf_regular"
                         android:text="Surrey"
                         android:textColor="@color/black"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -144,31 +138,25 @@
 
         <FrameLayout
             android:id="@+id/chartFloat"
-            android:elevation="2dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
             android:layout_width="298dp"
             android:layout_height="325dp"
-            android:background="@drawable/white_background_24radius">
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/white_background_24radius"
+            android:elevation="2dp">
 
-            <com.anychart.AnyChartView
-                android:id="@+id/any_chart_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp" />
-
-
-            <!--<LinearLayout
+            <LinearLayout
                 android:id="@+id/chartFloatVerticalLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/chartFloatTimeswitchLayout"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
+                    android:layout_marginTop="15dp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -177,59 +165,65 @@
                         android:layout_width="80dp"
                         android:layout_height="30dp"
                         android:layout_marginHorizontal="5dp"
-                        android:text="Month"
+                        android:background="@drawable/gradient_button_background"
                         android:fontFamily="@font/visbyroundcf_bold"
+                        android:text="Month"
                         android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        android:background="@drawable/gradient_button_background"/>
+                        android:textColor="@color/white" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/chartFloatYearView"
                         android:layout_width="60dp"
                         android:layout_height="30dp"
                         android:layout_marginHorizontal="5dp"
-                        android:text="Year"
+                        android:background="@drawable/gradient_button_background"
                         android:fontFamily="@font/visbyroundcf_bold"
+                        android:text="Year"
                         android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        android:background="@drawable/gradient_button_background"/>
+                        android:textColor="@color/white" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/chartFloatAllView"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:layout_marginHorizontal="5dp"
-                        android:text="All"
+                        android:background="@drawable/gradient_button_background"
                         android:fontFamily="@font/visbyroundcf_bold"
+                        android:text="All"
                         android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        android:background="@drawable/gradient_button_background"/>
+                        android:textColor="@color/white" />
 
                 </LinearLayout>
 
+                <com.anychart.AnyChartView
+                    android:id="@+id/any_chart_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp" />
 
-            </LinearLayout>-->
+
+            </LinearLayout>
 
         </FrameLayout>
 
         <FrameLayout
             android:id="@+id/diaryFloat"
-            android:elevation="2dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
             android:layout_width="298dp"
             android:layout_height="125dp"
-            android:background="@drawable/white_background_24radius">
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/white_background_24radius"
+            android:elevation="2dp">
 
             <ImageButton
                 android:id="@+id/diaryFloatButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_marginHorizontal="3dp"
                 android:layout_marginVertical="8dp"
-                android:layout_gravity="center"
-                android:src="@drawable/mood_diary"
-                android:contentDescription="Mood Diary Art" />
+                android:contentDescription="Mood Diary Art"
+                android:src="@drawable/mood_diary" />
 
         </FrameLayout>
 
