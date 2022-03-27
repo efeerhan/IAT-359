@@ -3,26 +3,23 @@ package com.group7.momio
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatButton
-import java.text.SimpleDateFormat
-import java.util.*
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.text.isDigitsOnly
 import java.lang.IndexOutOfBoundsException
 import java.lang.NullPointerException
 import java.time.LocalDateTime
-import java.time.ZoneId
-import java.time.ZonedDateTime
-import java.time.format.DateTimeFormatter
-import kotlin.math.absoluteValue
-
 
 class MoodDiaryActivity : AppCompatActivity() {
+
+    private val current: LocalDateTime = LocalDateTime.now()
 
     private fun whiteBackground(view: LinearLayout) {
         view.setBackgroundResource(R.drawable.calendar_white_bg)
@@ -30,19 +27,18 @@ class MoodDiaryActivity : AppCompatActivity() {
 
     private fun calendarBackground(){
         val daysBackgroundList = listOf<LinearLayout>(
-            findViewById(R.id.day01),   //monday
-            findViewById(R.id.day02),   //tuesday
-            findViewById(R.id.day03),   //wednesday
-            findViewById(R.id.day04),   //thursday
-            findViewById(R.id.day05),   //friday
-            findViewById(R.id.day06),   //saturday
-            findViewById(R.id.day07)    //sunday
+            findViewById(R.id.rDay01),   //monday
+            findViewById(R.id.rDay02),   //tuesday
+            findViewById(R.id.rDay03),   //wednesday
+            findViewById(R.id.rDay04),   //thursday
+            findViewById(R.id.rDay05),   //friday
+            findViewById(R.id.rDay06),   //saturday
+            findViewById(R.id.rDay07)    //sunday
         )
-
-        val current = LocalDateTime.now()
 
         val dayOfMonth = current.dayOfMonth
         val dayOfWeek = current.dayOfWeek.value
+        val currentMonth = current.month.value
 
         val dayView = daysBackgroundList[dayOfWeek-1]
         val daysAfter = 7 - dayOfWeek
@@ -135,15 +131,19 @@ class MoodDiaryActivity : AppCompatActivity() {
         }
 
 
-        var num = 0
+        val db = MoodDatabase.getDatabase(this)
+        val dao = db.getDao()
 
-        for ( day in daysBackgroundList ) {
+        for ((num, day) in daysBackgroundList.withIndex()) {
             val childCount = day.childCount
             for ( i in 0..childCount ) {
                 val child = day.getChildAt(i)
-                if ( child is TextView ) {
-                    if (child.text.isDigitsOnly())
-                        child.text = dayRange[num++].toString()
+                if ( child is TextView && child.text.isDigitsOnly()) {
+                    child.text = dayRange[num].toString()
+                }
+                if ( child is ImageView ) {
+                    if ( dao.getMonth(currentMonth).moodDayArray[dayRange[num]-1] == -1 )
+                        child.setImageDrawable(null)
                 }
             }
         }

@@ -2,9 +2,13 @@ package com.group7.momio
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Typeface
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity.CENTER
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
@@ -12,15 +16,22 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatButton
 import androidx.cardview.widget.CardView
 import androidx.core.text.isDigitsOnly
+import org.w3c.dom.Text
 import java.lang.IndexOutOfBoundsException
+import java.lang.NullPointerException
 import java.time.LocalDateTime
-import kotlin.math.log
+import android.widget.RelativeLayout
+import androidx.core.content.res.ResourcesCompat
+
 
 class MoodDiaryResultActivity : AppCompatActivity() {
 
     private val current: LocalDateTime = LocalDateTime.now()
+
+    private var toShow = 3
 
     private fun whiteBackground(view: LinearLayout) {
         view.setBackgroundResource(R.drawable.calendar_white_bg)
@@ -39,6 +50,7 @@ class MoodDiaryResultActivity : AppCompatActivity() {
         
         val dayOfMonth = current.dayOfMonth
         val dayOfWeek = current.dayOfWeek.value
+        val currentMonth = current.month.value
 
         val dayView = daysBackgroundList[dayOfWeek-1]
         val daysAfter = 7 - dayOfWeek
@@ -131,15 +143,19 @@ class MoodDiaryResultActivity : AppCompatActivity() {
         }
 
 
-        var num = 0
+        val db = MoodDatabase.getDatabase(this)
+        val dao = db.getDao()
 
-        for ( day in daysBackgroundList ) {
+        for ((num, day) in daysBackgroundList.withIndex()) {
             val childCount = day.childCount
             for ( i in 0..childCount ) {
                 val child = day.getChildAt(i)
-                if ( child is TextView ) {
-                    if (child.text.isDigitsOnly())
-                        child.text = dayRange[num++].toString()
+                if ( child is TextView && child.text.isDigitsOnly()) {
+                        child.text = dayRange[num].toString()
+                    }
+                if ( child is ImageView ) {
+                    if ( dao.getMonth(currentMonth).moodDayArray[dayRange[num]-1] == -1 )
+                        child.setImageDrawable(null)
                 }
             }
         }
@@ -185,7 +201,7 @@ class MoodDiaryResultActivity : AppCompatActivity() {
             }
         }
 
-        println(list)
+        toShow = 3
 
         val big = list.indexOf(list.maxOrNull())
         setCardMood(bigImageView, bigTextView, big)
@@ -194,19 +210,93 @@ class MoodDiaryResultActivity : AppCompatActivity() {
         val midVal = list.maxOrNull()
         if ( midVal != 0 ) {
 
-            bigCardView.
+            val mid = list.indexOf(list.maxOrNull())
+            setCardMood(midImageView, midTextView, mid)
+            list.removeAt(mid)
+
+            val lowVal = list.maxOrNull()
+            if ( lowVal != 0 ) {
+                val low = list.indexOf(list.maxOrNull())
+                setCardMood(lowImageView, lowTextView, low)
+                list.removeAt(low)
+            }
+            else {
+                findViewById<CardView>(R.id.third).visibility = View.GONE
+                toShow = 2
+            }
+        }
+        else {
+            findViewById<CardView>(R.id.second).visibility = View.GONE
+            findViewById<CardView>(R.id.third).visibility = View.GONE
+            toShow = 1
+        }
+
+    }
+
+    private fun getYearMood() {
+
+        val bigImageView = findViewById<ImageView>(R.id.img_1)
+        val bigTextView = findViewById<TextView>(R.id.mood_1)
+        val bigCardView = findViewById<CardView>(R.id.first)
+
+        val midImageView = findViewById<ImageView>(R.id.img_2)
+        val midTextView = findViewById<TextView>(R.id.mood_2)
+        val lowImageView = findViewById<ImageView>(R.id.img_3)
+        val lowTextView = findViewById<TextView>(R.id.mood_3)
+
+        val db = MoodDatabase.getDatabase(this)
+        val dao = db.getDao()
+
+        val list = arrayListOf(0,0,0,0,0,0,0)
+
+        val monthArray = mutableListOf<Int>()
+        try {
+            val monthList = dao.getAllMonths()
+            for ( month in monthList ) {
+                monthArray.addAll(month.moodDayArray)
+            }
+
+            for ( num in monthArray ) {
+                when ( num ) {
+                    0 -> list[0]++
+                    1 -> list[1]++
+                    2 -> list[2]++
+                    3 -> list[3]++
+                    4 -> list[4]++
+                    5 -> list[5]++
+                    6 -> list[6]++
+                }
+            }
+        } catch (e: NullPointerException){}
+
+        toShow = 3
+
+        val big = list.indexOf(list.maxOrNull())
+        setCardMood(bigImageView, bigTextView, big)
+        list.removeAt(big)
+
+        val midVal = list.maxOrNull()
+        if ( midVal != 0 ) {
 
             val mid = list.indexOf(list.maxOrNull())
             setCardMood(midImageView, midTextView, mid)
             list.removeAt(mid)
 
-            val low = list.indexOf(list.maxOrNull())
-            setCardMood(lowImageView, lowTextView, low)
-            list.removeAt(low)
+            val lowVal = list.maxOrNull()
+            if ( lowVal != 0 ) {
+                val low = list.indexOf(list.maxOrNull())
+                setCardMood(lowImageView, lowTextView, low)
+                list.removeAt(low)
+            }
+            else {
+                findViewById<CardView>(R.id.third).visibility = View.GONE
+                toShow = 2
+            }
         }
         else {
             findViewById<CardView>(R.id.second).visibility = View.GONE
             findViewById<CardView>(R.id.third).visibility = View.GONE
+            toShow = 1
         }
 
     }
@@ -256,10 +346,134 @@ class MoodDiaryResultActivity : AppCompatActivity() {
 
         getMonthMood(current.monthValue)
 
+        val monthNameArray = arrayOf("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep",
+            "Oct", "Nov", "Dec")
+        val currentPeriodTextView = findViewById<TextView>(R.id.currentPeriod)
+        currentPeriodTextView.text = monthNameArray[current.monthValue-1]
+
         val backButton = findViewById<ImageButton>(R.id.backButtonDiary2)
+
+        val navigator = findViewById<LinearLayout>(R.id.timePeriodNavigator)
+        val monthButton = findViewById<AppCompatButton>(R.id.month)
+        val yearButton = findViewById<AppCompatButton>(R.id.year)
+        val allButton = findViewById<AppCompatButton>(R.id.all)
+
+        val viewButtonList = mutableListOf<AppCompatButton>(monthButton, yearButton, allButton)
+
+        val forward = findViewById<ImageView>(R.id.forward)
+        val backward = findViewById<ImageView>(R.id.backward)
+
+        var navButtonMode = 0 //0 month, 1 year
+
+        var navIndex = current.monthValue - 1
+
+        val textViewNoData = TextView(this)
+        textViewNoData.text = "No data available"
+        textViewNoData.gravity = CENTER
+        val typeface = ResourcesCompat.getFont(this, R.font.visbyroundcf_regular);
+        textViewNoData.typeface = typeface
+
+        backward.setOnClickListener{
+            if ( navButtonMode == 0 && navIndex != 0 ) {
+                currentPeriodTextView.text = monthNameArray[--navIndex]
+                try {
+                    findViewById<LinearLayout>(R.id.top3_moods).removeView(textViewNoData)
+                    getMonthMood(navIndex + 1)
+                    when ( toShow ) {
+                        3 -> {
+                            findViewById<CardView>(R.id.first).visibility = View.VISIBLE
+                            findViewById<CardView>(R.id.second).visibility = View.VISIBLE
+                            findViewById<CardView>(R.id.third).visibility = View.VISIBLE
+                        }
+                        2 -> {
+                            findViewById<CardView>(R.id.first).visibility = View.VISIBLE
+                            findViewById<CardView>(R.id.second).visibility = View.VISIBLE
+                        }
+                        1 -> {
+                            findViewById<CardView>(R.id.third).visibility = View.VISIBLE
+                        }
+                    }
+                } catch (e: NullPointerException) {
+                    findViewById<LinearLayout>(R.id.top3_moods).addView(textViewNoData)
+                    findViewById<CardView>(R.id.first).visibility = View.GONE
+                    findViewById<CardView>(R.id.second).visibility = View.GONE
+                    findViewById<CardView>(R.id.third).visibility = View.GONE
+                }
+            }
+        }
+
+        forward.setOnClickListener{
+            if ( navButtonMode == 0 && navIndex != 11 ) {
+                currentPeriodTextView.text = monthNameArray[++navIndex]
+                try {
+                    findViewById<LinearLayout>(R.id.top3_moods).removeView(textViewNoData)
+                    getMonthMood(navIndex + 1)
+                    when ( toShow ) {
+                        3 -> {
+                            findViewById<CardView>(R.id.first).visibility = View.VISIBLE
+                            findViewById<CardView>(R.id.second).visibility = View.VISIBLE
+                            findViewById<CardView>(R.id.third).visibility = View.VISIBLE
+                        }
+                        2 -> {
+                            findViewById<CardView>(R.id.first).visibility = View.VISIBLE
+                            findViewById<CardView>(R.id.second).visibility = View.VISIBLE
+                        }
+                        1 -> {
+                            findViewById<CardView>(R.id.third).visibility = View.VISIBLE
+                        }
+                    }
+                } catch (e: NullPointerException) {
+                    findViewById<LinearLayout>(R.id.top3_moods).addView(textViewNoData)
+                    findViewById<CardView>(R.id.first).visibility = View.GONE
+                    findViewById<CardView>(R.id.second).visibility = View.GONE
+                    findViewById<CardView>(R.id.third).visibility = View.GONE
+                }
+            }
+        }
 
         backButton.setOnClickListener{
             startActivity(Intent(this, MainActivity::class.java))
+        }
+
+        yearButton.setOnClickListener{
+            navButtonMode = 1
+            navigator.visibility = View.VISIBLE
+            currentPeriodTextView.text = "2022"
+            getYearMood()
+            viewButtonList[0].setBackgroundResource(R.drawable.secondary_time_label)
+            viewButtonList[0].setTextColor(Color.BLACK)
+            viewButtonList[2].setBackgroundResource(R.drawable.secondary_time_label)
+            viewButtonList[2].setTextColor(Color.BLACK)
+            yearButton.setBackgroundResource(R.drawable.primary_time_label)
+            yearButton.setTextColor(Color.WHITE)
+        }
+
+        monthButton.setOnClickListener{
+            navButtonMode = 0
+            navigator.visibility = View.VISIBLE
+            navIndex = current.monthValue - 1
+            currentPeriodTextView.text = monthNameArray[navIndex]
+
+            getMonthMood(current.monthValue)
+
+            viewButtonList[1].setBackgroundResource(R.drawable.secondary_time_label)
+            viewButtonList[1].setTextColor(Color.BLACK)
+            viewButtonList[2].setBackgroundResource(R.drawable.secondary_time_label)
+            viewButtonList[2].setTextColor(Color.BLACK)
+            monthButton.setBackgroundResource(R.drawable.primary_time_label)
+            monthButton.setTextColor(Color.WHITE)
+        }
+
+        allButton.setOnClickListener{
+            navButtonMode = 1
+            navigator.visibility = View.GONE
+            getYearMood()
+            viewButtonList[0].setBackgroundResource(R.drawable.secondary_time_label)
+            viewButtonList[0].setTextColor(Color.BLACK)
+            viewButtonList[1].setBackgroundResource(R.drawable.secondary_time_label)
+            viewButtonList[1].setTextColor(Color.BLACK)
+            allButton.setBackgroundResource(R.drawable.primary_time_label)
+            allButton.setTextColor(Color.WHITE)
         }
     }
 }

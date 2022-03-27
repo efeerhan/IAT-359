@@ -22,4 +22,5 @@ class BottomSheetFragmentActivity : BottomSheetDialogFragment() {
     }
 
     override fun getTheme(): Int  = R.style.CustomBottomSheetDialog
+
 }
