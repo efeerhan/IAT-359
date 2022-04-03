@@ -27,13 +27,13 @@ class MoodDiaryActivity : AppCompatActivity() {
 
     private fun calendarBackground(){
         val daysBackgroundList = listOf<LinearLayout>(
-            findViewById(R.id.rDay01),   //monday
-            findViewById(R.id.rDay02),   //tuesday
-            findViewById(R.id.rDay03),   //wednesday
-            findViewById(R.id.rDay04),   //thursday
-            findViewById(R.id.rDay05),   //friday
-            findViewById(R.id.rDay06),   //saturday
-            findViewById(R.id.rDay07)    //sunday
+            findViewById(R.id.day01),   //monday
+            findViewById(R.id.day02),   //tuesday
+            findViewById(R.id.day03),   //wednesday
+            findViewById(R.id.day04),   //thursday
+            findViewById(R.id.day05),   //friday
+            findViewById(R.id.day06),   //saturday
+            findViewById(R.id.day07)    //sunday
         )
 
         val dayOfMonth = current.dayOfMonth
@@ -142,8 +142,10 @@ class MoodDiaryActivity : AppCompatActivity() {
                     child.text = dayRange[num].toString()
                 }
                 if ( child is ImageView ) {
-                    if ( dao.getMonth(currentMonth).moodDayArray[dayRange[num]-1] == -1 )
-                        child.setImageDrawable(null)
+                    try {
+                        if ( dao.getMonth(currentMonth).moodDayArray[dayRange[num]-1] == -1 )
+                            child.setImageDrawable(null)
+                    } catch (e: NullPointerException) { child.setImageDrawable(null) }
                 }
             }
         }

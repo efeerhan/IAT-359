@@ -201,24 +201,26 @@ class MoodDiaryResultActivity : AppCompatActivity() {
             }
         }
 
+        //println(list)
+
         toShow = 3
 
         val big = list.indexOf(list.maxOrNull())
         setCardMood(bigImageView, bigTextView, big)
-        list.removeAt(big)
+        list[big] = 0
 
         val midVal = list.maxOrNull()
         if ( midVal != 0 ) {
 
             val mid = list.indexOf(list.maxOrNull())
             setCardMood(midImageView, midTextView, mid)
-            list.removeAt(mid)
+            list[mid] = 0
 
             val lowVal = list.maxOrNull()
             if ( lowVal != 0 ) {
                 val low = list.indexOf(list.maxOrNull())
                 setCardMood(lowImageView, lowTextView, low)
-                list.removeAt(low)
+                list[low] = 0
             }
             else {
                 findViewById<CardView>(R.id.third).visibility = View.GONE
@@ -267,26 +269,31 @@ class MoodDiaryResultActivity : AppCompatActivity() {
                     6 -> list[6]++
                 }
             }
-        } catch (e: NullPointerException){}
+        } catch (e: NullPointerException){ }
+
+        println(list)
 
         toShow = 3
 
         val big = list.indexOf(list.maxOrNull())
         setCardMood(bigImageView, bigTextView, big)
-        list.removeAt(big)
+        list[big] = 0
+        println("big: $big")
 
         val midVal = list.maxOrNull()
         if ( midVal != 0 ) {
 
             val mid = list.indexOf(list.maxOrNull())
+            println("mid: $mid")
             setCardMood(midImageView, midTextView, mid)
-            list.removeAt(mid)
+            list[mid] = 0
 
             val lowVal = list.maxOrNull()
             if ( lowVal != 0 ) {
                 val low = list.indexOf(list.maxOrNull())
+                println("low: $low")
                 setCardMood(lowImageView, lowTextView, low)
-                list.removeAt(low)
+                list[low] = 0
             }
             else {
                 findViewById<CardView>(R.id.third).visibility = View.GONE
@@ -298,7 +305,7 @@ class MoodDiaryResultActivity : AppCompatActivity() {
             findViewById<CardView>(R.id.third).visibility = View.GONE
             toShow = 1
         }
-
+        println("toShow: $toShow")
     }
 
     @SuppressLint("SetTextI18n")
@@ -363,7 +370,7 @@ class MoodDiaryResultActivity : AppCompatActivity() {
         val forward = findViewById<ImageView>(R.id.forward)
         val backward = findViewById<ImageView>(R.id.backward)
 
-        var navButtonMode = 0 //0 month, 1 year
+        var navButtonMode = 0 //0 month, 1 year, 2 all
 
         var navIndex = current.monthValue - 1
 
@@ -390,7 +397,7 @@ class MoodDiaryResultActivity : AppCompatActivity() {
                             findViewById<CardView>(R.id.second).visibility = View.VISIBLE
                         }
                         1 -> {
-                            findViewById<CardView>(R.id.third).visibility = View.VISIBLE
+                            findViewById<CardView>(R.id.first).visibility = View.VISIBLE
                         }
                     }
                 } catch (e: NullPointerException) {
@@ -419,7 +426,7 @@ class MoodDiaryResultActivity : AppCompatActivity() {
                             findViewById<CardView>(R.id.second).visibility = View.VISIBLE
                         }
                         1 -> {
-                            findViewById<CardView>(R.id.third).visibility = View.VISIBLE
+                            findViewById<CardView>(R.id.first).visibility = View.VISIBLE
                         }
                     }
                 } catch (e: NullPointerException) {
@@ -436,44 +443,82 @@ class MoodDiaryResultActivity : AppCompatActivity() {
         }
 
         yearButton.setOnClickListener{
+            if ( navButtonMode != 1 ) {
+                findViewById<LinearLayout>(R.id.top3_moods).removeView(textViewNoData)
+                navigator.visibility = View.VISIBLE
+                currentPeriodTextView.text = "2022"
+                getYearMood()
+                when (toShow) {
+                    3 -> {
+                        findViewById<CardView>(R.id.first).visibility = View.VISIBLE
+                        findViewById<CardView>(R.id.second).visibility = View.VISIBLE
+                        findViewById<CardView>(R.id.third).visibility = View.VISIBLE
+                    }
+                    2 -> {
+                        findViewById<CardView>(R.id.first).visibility = View.VISIBLE
+                        findViewById<CardView>(R.id.second).visibility = View.VISIBLE
+                    }
+                    1 -> {
+                        findViewById<CardView>(R.id.first).visibility = View.VISIBLE
+                    }
+                }
+                viewButtonList[0].setBackgroundResource(R.drawable.secondary_time_label)
+                viewButtonList[0].setTextColor(Color.BLACK)
+                viewButtonList[2].setBackgroundResource(R.drawable.secondary_time_label)
+                viewButtonList[2].setTextColor(Color.BLACK)
+                yearButton.setBackgroundResource(R.drawable.primary_time_label)
+                yearButton.setTextColor(Color.WHITE)
+            }
             navButtonMode = 1
-            navigator.visibility = View.VISIBLE
-            currentPeriodTextView.text = "2022"
-            getYearMood()
-            viewButtonList[0].setBackgroundResource(R.drawable.secondary_time_label)
-            viewButtonList[0].setTextColor(Color.BLACK)
-            viewButtonList[2].setBackgroundResource(R.drawable.secondary_time_label)
-            viewButtonList[2].setTextColor(Color.BLACK)
-            yearButton.setBackgroundResource(R.drawable.primary_time_label)
-            yearButton.setTextColor(Color.WHITE)
         }
 
         monthButton.setOnClickListener{
+            if ( navButtonMode != 0 ) {
+                findViewById<LinearLayout>(R.id.top3_moods).removeView(textViewNoData)
+
+                navigator.visibility = View.VISIBLE
+                navIndex = current.monthValue - 1
+                currentPeriodTextView.text = monthNameArray[navIndex]
+
+                getMonthMood(current.monthValue)
+
+                viewButtonList[1].setBackgroundResource(R.drawable.secondary_time_label)
+                viewButtonList[1].setTextColor(Color.BLACK)
+                viewButtonList[2].setBackgroundResource(R.drawable.secondary_time_label)
+                viewButtonList[2].setTextColor(Color.BLACK)
+                monthButton.setBackgroundResource(R.drawable.primary_time_label)
+                monthButton.setTextColor(Color.WHITE)
+            }
             navButtonMode = 0
-            navigator.visibility = View.VISIBLE
-            navIndex = current.monthValue - 1
-            currentPeriodTextView.text = monthNameArray[navIndex]
-
-            getMonthMood(current.monthValue)
-
-            viewButtonList[1].setBackgroundResource(R.drawable.secondary_time_label)
-            viewButtonList[1].setTextColor(Color.BLACK)
-            viewButtonList[2].setBackgroundResource(R.drawable.secondary_time_label)
-            viewButtonList[2].setTextColor(Color.BLACK)
-            monthButton.setBackgroundResource(R.drawable.primary_time_label)
-            monthButton.setTextColor(Color.WHITE)
         }
 
         allButton.setOnClickListener{
-            navButtonMode = 1
-            navigator.visibility = View.GONE
-            getYearMood()
-            viewButtonList[0].setBackgroundResource(R.drawable.secondary_time_label)
-            viewButtonList[0].setTextColor(Color.BLACK)
-            viewButtonList[1].setBackgroundResource(R.drawable.secondary_time_label)
-            viewButtonList[1].setTextColor(Color.BLACK)
-            allButton.setBackgroundResource(R.drawable.primary_time_label)
-            allButton.setTextColor(Color.WHITE)
+            if ( navButtonMode != 2 ) {
+                findViewById<LinearLayout>(R.id.top3_moods).removeView(textViewNoData)
+                navigator.visibility = View.GONE
+                getYearMood()
+                when (toShow) {
+                    3 -> {
+                        findViewById<CardView>(R.id.first).visibility = View.VISIBLE
+                        findViewById<CardView>(R.id.second).visibility = View.VISIBLE
+                        findViewById<CardView>(R.id.third).visibility = View.VISIBLE
+                    }
+                    2 -> {
+                        findViewById<CardView>(R.id.first).visibility = View.VISIBLE
+                        findViewById<CardView>(R.id.second).visibility = View.VISIBLE
+                    }
+                    1 -> {
+                        findViewById<CardView>(R.id.first).visibility = View.VISIBLE
+                    }
+                }
+                viewButtonList[0].setBackgroundResource(R.drawable.secondary_time_label)
+                viewButtonList[0].setTextColor(Color.BLACK)
+                viewButtonList[1].setBackgroundResource(R.drawable.secondary_time_label)
+                viewButtonList[1].setTextColor(Color.BLACK)
+                allButton.setBackgroundResource(R.drawable.primary_time_label)
+                allButton.setTextColor(Color.WHITE)
+            }
+            navButtonMode = 2
         }
     }
 }

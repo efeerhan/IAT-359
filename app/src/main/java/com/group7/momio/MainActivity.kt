@@ -147,10 +147,11 @@ class MainActivity : AppCompatActivity() {
         try {
             val month: MoodMonth = dao.getMonth(currentMonth)
             val monthArray = month.moodDayArray
+
             for ( num in monthArray ) {
-                if ( num == 0 )
+                if ( num == 3 )
                     neutral++
-                if (num in 1..3)
+                if (num in 0..2)
                     negative++
                 if ( num in 4..6 )
                     positive++
@@ -177,9 +178,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             for ( num in monthArray ) {
-                if ( num == 0 )
+                if ( num == 3 )
                     neutral++
-                if (num in 1..3)
+                if (num in 0..2)
                     negative++
                 if ( num in 4..6 )
                     positive++
@@ -201,11 +202,11 @@ class MainActivity : AppCompatActivity() {
 
         val greetingText = findViewById<TextView>(R.id.greeting)
         val dateData = LocalDateTime.now()
-        if ( dateData.hour < 12 )
+        if ( dateData.hour in 6..12 )
             greetingText.text = "Good Morning!"
         if (dateData.hour in 12..17)
             greetingText.text = "Good Afternoon!"
-        if ( dateData.hour > 17 )
+        if ( dateData.hour > 17 || dateData.hour < 6 )
             greetingText.text = "Good Evening!"
 
         val db by lazy { MoodDatabase.getDatabase(this) }
@@ -231,9 +232,19 @@ class MainActivity : AppCompatActivity() {
         val settingsButton = findViewById<ImageButton>(R.id.settings)
         val dialog = BottomSheetFragmentActivity()
         val allButton = findViewById<AppCompatButton>(R.id.chartFloatAllView)
+        val monthButton = findViewById<AppCompatButton>(R.id.chartFloatMonthView)
+        val yearButton = findViewById<AppCompatButton>(R.id.chartFloatYearView)
 
         allButton.setOnClickListener {
             getAllGraph(dao)
+        }
+
+        yearButton.setOnClickListener {
+            getAllGraph(dao)
+        }
+
+        monthButton.setOnClickListener {
+            getMonthGraph(dao)
         }
 
         settingsButton.setOnClickListener {
